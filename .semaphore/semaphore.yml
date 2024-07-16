@@ -21,4 +21,3 @@ blocks:
         always:
           commands:
             - test-results publish junit.xml
-      jobs: []
