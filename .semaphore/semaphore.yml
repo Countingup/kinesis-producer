@@ -13,10 +13,10 @@ blocks:
           - sem-version go 1.22
           - go get ./...
           - go install gotest.tools/gotestsum@v1.7.0
-      job:
-        name: Test
-        commands:
-          - gotestsum --junitfile junit.xml ./...
+      jobs:
+        - name: Test
+          commands:
+            - gotestsum --junitfile junit.xml ./...
       epilogue:
         always:
           commands:
