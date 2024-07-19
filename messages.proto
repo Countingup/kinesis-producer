@@ -1,4 +1,6 @@
-package producer;
+package com.countingup.kinesis_producer;
+
+option go_package = "./producer";
 
 message AggregatedRecord {
   repeated string partition_key_table     = 1;

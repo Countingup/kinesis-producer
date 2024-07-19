@@ -5,7 +5,7 @@ import (
 	"crypto/md5"
 
 	k "github.com/aws/aws-sdk-go/service/kinesis"
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 var (
