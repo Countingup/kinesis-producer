@@ -13,6 +13,12 @@ func assert(t *testing.T, val bool, msg string) {
 	}
 }
 
+func require(t *testing.T, val bool, msg string) {
+	if !val {
+		t.Fatal(msg)
+	}
+}
+
 func TestSizeAndCount(t *testing.T) {
 	a := new(Aggregator)
 	assert(t, a.Size()+a.Count() == 0, "size and count should equal to 0 at the beginning")
@@ -42,8 +48,9 @@ func TestAggregation(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	assert(t, isAggregated(record), "should return an agregated record")
-	records := extractRecords(record)
+	require(t, record != nil, "should return a non-nil record")
+	assert(t, isAggregated(*record), "should return an aggregated record")
+	records := extractRecords(*record)
 	for i := 0; i < n; i++ {
 		c := strconv.Itoa(i)
 		found := false
