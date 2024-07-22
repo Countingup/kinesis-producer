@@ -9,25 +9,33 @@ and using the same aggregation format that [KPL][kpl-url] use.
 - [Consumer De-aggregation][de-aggregation]
 
 ### Example
+
 ```go
 package main
 
 import (
+	"context"
+	"log"
 	"time"
 
 	"github.com/sirupsen/logrus"
-	"github.com/a8m/kinesis-producer"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/kinesis"
+	"github.com/Countingup/kinesis-producer"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/kinesis"
 )
 
 func main() {
-	client := kinesis.New(session.New(aws.NewConfig()))
+	cfg, err := config.LoadDefaultConfig(context.Background())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	client := kinesis.NewFromConfig(cfg)
 	pr := producer.New(&producer.Config{
 		StreamName:   "test",
 		BacklogCount: 2000,
-		Client:       client
+		Client:       client,
 	})
 
 	pr.Start()
@@ -74,8 +82,8 @@ customLogger := &CustomLogger{}
 ```go
 import (
 	"github.com/sirupsen/logrus"
-	producer "github.com/a8m/kinesis-producer"
-	"github.com/a8m/kinesis-producer/loggers"
+	producer "github.com/Countingup/kinesis-producer"
+	"github.com/Countingup/kinesis-producer/loggers"
 )
 
 log := logrus.New()
