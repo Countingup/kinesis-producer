@@ -1,4 +1,4 @@
-# Amazon kinesis producer [![Build status][travis-image]][travis-url] [![License][license-image]][license-url] [![GoDoc][godoc-img]][godoc-url]
+# Amazon kinesis producer [![Build status][semaphore-image]][semaphore-url] [![License][license-image]][license-url] [![GoDoc][godoc-img]][godoc-url]
 > A KPL-like batch producer for Amazon Kinesis built on top of the official Go AWS SDK  
 and using the same aggregation format that [KPL][kpl-url] use.  
 
@@ -105,14 +105,14 @@ kinesis-producer ships with three logger implementations.
 ### License
 MIT
 
-[godoc-url]: https://godoc.org/github.com/a8m/kinesis-producer
-[godoc-img]: https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square
+[godoc-url]: https://godoc.org/github.com/Countingup/kinesis-producer
+[godoc-img]: https://img.shields.io/badge/godoc-reference-blue.svg
 [kpl-url]: https://github.com/awslabs/amazon-kinesis-producer
 [de-aggregation]: http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-kpl-consumer-deaggregation.html
 [kpl-aggregation]: http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-producer-adv-aggregation.html
-[aggregation-format-url]: https://github.com/a8m/kinesis-producer/blob/master/aggregation-format.md
-[license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[aggregation-format-url]: https://github.com/Countingup/kinesis-producer/blob/master/aggregation-format.md
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: LICENSE
-[travis-image]: https://img.shields.io/travis/a8m/kinesis-producer.svg?style=flat-square
-[travis-url]: https://travis-ci.org/a8m/kinesis-producer
+[semaphore-image]: https://countingup.semaphoreci.com/badges/kinesis-producer.svg?style=shields
+[semaphore-url]: https://countingup.semaphoreci.com/projects/kinesis-producer
 
