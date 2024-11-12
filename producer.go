@@ -14,6 +14,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/kinesis"
 	"github.com/aws/aws-sdk-go-v2/service/kinesis/types"
 	"github.com/jpillora/backoff"
@@ -245,7 +246,7 @@ func (p *Producer) flush(records []types.PutRecordsRequestEntry, reason string) 
 
 	for {
 		p.Logger.Info("flushing records", LogValue{"reason", reason}, LogValue{"records", len(records)})
-		out, err := p.Client.PutRecords(context.TODO(), &kinesis.PutRecordsInput{
+		out, err := p.Client.PutRecords(context.Background(), &kinesis.PutRecordsInput{
 			StreamName: &p.StreamName,
 			Records:    records,
 		})

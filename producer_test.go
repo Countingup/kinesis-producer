@@ -3,10 +3,10 @@ package producer
 import (
 	"context"
 	"errors"
-	"github.com/aws/aws-sdk-go-v2/service/kinesis/types"
 	"sync"
 	"testing"
 
+	"github.com/aws/aws-sdk-go-v2/service/kinesis/types"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	k "github.com/aws/aws-sdk-go-v2/service/kinesis"
 )
