@@ -1,5 +1,6 @@
+// protoc --go_out=. --go_opt=paths=source_relative messages.proto
+syntax = "proto2";
 package com.countingup.kinesis_producer;
-
 option go_package = "./producer";
 
 message AggregatedRecord {
