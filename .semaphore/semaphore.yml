@@ -10,7 +10,7 @@ blocks:
       prologue:
         commands:
           - checkout
-          - sem-version go 1.22
+          - sem-version go 1.25
           - go get ./...
           - go install gotest.tools/gotestsum@v1.7.0
       jobs:
